@@ -32,7 +32,7 @@ if(isset($_POST["submit"])){
     <title>Login</title>
   </head>
   <body>
-    <h2>Login</h2>
+    <h2>Login To Your Lease With Ease</h2>
     <form class="" action="" method="post" autocomplete="off">
       <label for="usernameemail">Username or Email : </label>
       <input type="text" name="usernameemail" id = "usernameemail" required value=""> <br>
