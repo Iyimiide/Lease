@@ -30,6 +30,7 @@ if(isset($_POST["submit"])){
   <head>
     <meta charset="utf-8">
     <title>Login</title>
+        <link rel="stylesheet" href="Leasewithease/login.css" type="text/css" />
   </head>
   <body>
     <h2>Login To Your Lease With Ease</h2>
