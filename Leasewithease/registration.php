@@ -33,6 +33,7 @@ if(isset($_POST["submit"])){
   <head>
     <meta charset="utf-8">
     <title>Create Your Lease With Ease Account</title>
+    <link rel="stylesheet" href="Leasewithease/registration.css" type="text/css" />
   </head>
   <body>
     <h2>Create Your Lease With Ease Account</h2>
