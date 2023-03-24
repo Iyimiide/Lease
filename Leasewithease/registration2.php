@@ -11,7 +11,7 @@ if(isset($_POST["submit"])){
   $confirmpassword = $_POST["confirmpassword"];
   $duplicate = mysqli_query($conn, "SELECT * FROM tb_user WHERE username = '$username' OR email = '$email'");
   if(mysqli_num_rows($duplicate) > 0){
-    echo "<script> alert('Username or Email Has Already Taken'); </script>";
+    echo "<script> alert('Username or Email is Already Taken'); </script>";
   }
   else{
     if($password == $confirmpassword){
@@ -100,6 +100,6 @@ if(isset($_POST["submit"])){
       <button type="submit" name="submit">Register</button>
    </form>
     <br>
-    <a href="login.php">Login</a>
+    <a href="login2.php">Login</a>
   </body>
 </html>
