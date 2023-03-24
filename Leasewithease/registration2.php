@@ -85,7 +85,7 @@ if(isset($_POST["submit"])){
     </style>
   </head>
   <body>
-    <h2>Create Your Lease With Ease Reltor Account</h2>
+    <h2>Create Your Lease With Ease Realtor Account</h2>
     <form class="" action="" method="post" autocomplete="off">
       <label for="name">Name:</label>
       <input type="text" name="name" id="name" required value=""> <br>
