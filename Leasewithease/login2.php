@@ -1,7 +1,7 @@
 <?php
-require 'config.php';
+require 'config2.php';
 if(!empty($_SESSION["id"])){
-  header("Location: index.php");
+  header("Location: index2.php");
 }
 if(isset($_POST["submit"])){
   $usernameemail = $_POST["usernameemail"];
@@ -15,32 +15,49 @@ if(isset($_POST["submit"])){
       header("Location: index.php");
     }
     else{
-      echo
-      "<script> alert('Wrong Password'); </script>";
+      echo "<div class='alert alert-danger'>Wrong Password</div>";
     }
   }
   else{
-    echo
-    "<script> alert('User Not Registered'); </script>";
+    echo "<div class='alert alert-danger'>User Not Registered</div>";
   }
 }
 ?>
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Login</title>
-  </head>
-  <body>
-    <h2>Login</h2>
-    <form class="" action="" method="post" autocomplete="off">
-      <label for="usernameemail">Username or Email : </label>
-      <input type="text" name="usernameemail" id = "usernameemail" required value=""> <br>
-      <label for="password">Password : </label>
-      <input type="password" name="password" id = "password" required value=""> <br>
-      <button type="submit" name="submit">Login</button>
-    </form>
-    <br>
-    <a href="registration.php">Registration</a>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Realtor Login</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 mt-5">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="text-center">Login To Your Lease With Ease</h2>
+          </div>
+          <div class="card-body">
+            <form action="" method="post" autocomplete="off">
+              <div class="form-group">
+                <label for="usernameemail">Username or Email:</label>
+                <input type="text" name="usernameemail" id="usernameemail" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" class="form-control" required>
+              </div>
+              <button type="submit" name="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+            <div class="mt-3">
+              <a href="registration.php">Create an account</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 </html>
