@@ -1,56 +1,113 @@
-<?php
-require 'config.php';
-if(!empty($_SESSION["id"])){
-  header("Location: index.php");
-}
-if(isset($_POST["submit"])){
-  $name = $_POST["name"];
-  $username = $_POST["username"];
-  $email = $_POST["email"];
-  $password = $_POST["password"];
-  $confirmpassword = $_POST["confirmpassword"];
-  $duplicate = mysqli_query($conn, "SELECT * FROM tb_user WHERE username = '$username' OR email = '$email'");
-  if(mysqli_num_rows($duplicate) > 0){
-    echo
-    "<script> alert('Username or Email Has Already Taken'); </script>";
-  }
-  else{
-    if($password == $confirmpassword){
-      $query = "INSERT INTO tb_user VALUES('','$name','$username','$email','$password')";
-      mysqli_query($conn, $query);
-      echo
-      "<script> alert('Registration Successful'); </script>";
-    }
-    else{
-      echo
-      "<script> alert('Password Does Not Match'); </script>";
-    }
-  }
-}
-?>
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>Create Your Lease With Ease Account</title>
-    <link rel="stylesheet" href="Leasewithease/registration.css" type="text/css" />
+    <style>
+      body {
+        background-color: #f5f5f5;
+        font-family: Arial, sans-serif;
+      }
+      
+      h2 {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 36px;
+        color: #333;
+      }
+      
+      form {
+        margin: 0 auto;
+        width: 400px;
+        padding: 40px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      
+      label {
+        display: block;
+        font-size: 16px;
+        color: #333;
+        margin-bottom: 10px;
+      }
+      
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+      
+      button[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        margin-top: 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      
+      button[type="submit"]:hover {
+        background-color: #222;
+      }
+      
+      a {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+        color: #333;
+        font-size: 16px;
+      }
+      
+      a:hover {
+        color: #222;
+      }
+      
+      .alert {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #e74c3c;
+        color: #fff;
+        font-size: 16px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+      }
+    </style>
   </head>
   <body>
     <h2>Create Your Lease With Ease Account</h2>
     <form class="" action="" method="post" autocomplete="off">
-      <label for="name">Name : </label>
-      <input type="text" name="name" id = "name" required value=""> <br>
-      <label for="username">Username : </label>
-      <input type="text" name="username" id = "username" required value=""> <br>
-      <label for="email">Email : </label>
-      <input type="email" name="email" id = "email" required value=""> <br>
-      <label for="password">Password : </label>
-      <input type="password" name="password" id = "password" required value=""> <br>
-      <label for="confirmpassword">Confirm Password : </label>
-      <input type="password" name="confirmpassword" id = "confirmpassword" required value=""> <br>
-      <button type="submit" name="submit">Register</button>
-    </form>
-    <br>
-    <a href="login.php">Login</a>
-  </body>
-</html>
+      <?php
+      if(isset($_POST["submit"])){
+        $name = $_POST["name"];
+        $username = $_POST["username"];
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+        $confirmpassword = $_POST["confirmpassword"];
+        $duplicate = mysqli_query($conn, "SELECT * FROM tb_user WHERE username = '$username' OR email = '$email'");
+        if(mysqli_num_rows($duplicate) > 0){
+          echo
+          "<div class='alert'>Username or Email Has Already Taken</div>";
+        }
+        else{
+          if($password == $confirmpassword){
+            $query = "INSERT INTO tb_user VALUES('','$name','$username','$email','$password')";
+            mysqli_query($conn, $query);
+            echo
+            "<div class='alert'>Registration Successful</div>";
+          }
+          else{
+            echo
+            "<div class='alert'>Password Does Not Match</div>";
