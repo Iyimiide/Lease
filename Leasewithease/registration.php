@@ -98,5 +98,8 @@ if(isset($_POST["submit"])){
       <label for="confirmpassword">Confirm Password:</label>
       <input type="password" name="confirmpassword" id="confirmpassword" required value=""> <br>
       <button type="submit" name="submit">Register</button>
-    </
-
+   </form>
+    <br>
+    <a href="login.php">Login</a>
+  </body>
+</html>
